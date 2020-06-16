@@ -1,0 +1,23 @@
+{
+  "name": "bogosoft/http",
+  "description": "Implementations for various PSR-7 and PSR-15 contracts.",
+  "autoload": {
+    "psr-4": {
+      "Bogosoft\\Http\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": ">=7.4",
+    "psr/http-message": "^1.0",
+    "psr/http-server-handler": "^1.0",
+    "psr/http-server-middleware": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.2"
+  }
+}
