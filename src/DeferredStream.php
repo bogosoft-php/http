@@ -88,10 +88,21 @@ abstract class DeferredStream implements IStream, IStreamCopyable
         return feof($this->getBuffer());
     }
 
+    /**
+     * @return false|resource
+     */
     private function getBuffer()
     {
-        return $this->buffer
-            ?? $this->buffer = fopen('php://memory', 'r+');
+        if (null === $this->buffer)
+        {
+            $this->buffer = fopen('php://memory', 'r+');
+
+            $this->copyToInternal($this->buffer);
+
+            fseek($this->buffer, 0);
+        }
+
+        return $this->buffer;
     }
 
     /**
