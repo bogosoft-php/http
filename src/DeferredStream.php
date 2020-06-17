@@ -45,6 +45,15 @@ abstract class DeferredStream implements IStream, IStreamCopyable
             return stream_copy_to_stream($this->buffer, $target);
     }
 
+    /**
+     * When overridden in a derived class, copied the content of the current
+     * stream to a given resource.
+     *
+     * @param  resource  $target A target resource or stream to which the
+     *                           contents of the current stream will be copied.
+     * @return int|false         The number of bytes copied to the target
+     *                           resource, or {@see false} on failure to copy.
+     */
     protected abstract function copyToInternal($target);
 
     /**
